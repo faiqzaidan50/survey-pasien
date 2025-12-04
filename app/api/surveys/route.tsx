@@ -1,15 +1,8 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabaseClient";
-
+import { supabase } from "@/lib/supabaseClient"; // ✅ FIX
 
 export async function GET() {
-  // hapus baris itu, karena supabase sudah di-import langsung
-
-
-  const { data, error } = await supabase
-    .from("surveys")
-    .select("*")
-    .order("created_at", { ascending: true });
+  const { data, error } = await supabase.from("surveys").select("*");
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
