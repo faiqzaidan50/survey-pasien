@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
+
 
 export async function GET() {
-  const supabase = createClient();
+  // hapus baris itu, karena supabase sudah di-import langsung
+
 
   const { data, error } = await supabase
     .from("surveys")
