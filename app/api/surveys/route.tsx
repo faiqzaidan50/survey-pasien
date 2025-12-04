@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabaseClient"; // ✅ FIX
+import { supabase } from "@/lib/supabaseClient";
 
 export async function GET() {
   const { data, error } = await supabase.from("surveys").select("*");
@@ -10,3 +10,4 @@ export async function GET() {
 
   return NextResponse.json(data);
 }
+
